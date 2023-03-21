@@ -73,8 +73,6 @@ function RenderDataintoTable(JsonDataFromLocalStorage) {
   tbody.innerHTML = "";
   if (JsonDataFromLocalStorage != null) {
     if(JsonDataFromLocalStorage.length ===0)  NoRecordFound()
-    var emptyRecords = document.getElementById("noRecordTR");
-    emptyRecords.style.display = "none";
     for (var i = 0; i < JsonDataFromLocalStorage.length; i++) {
       var item = JsonDataFromLocalStorage[i];
       var row = document.createElement("tr");
