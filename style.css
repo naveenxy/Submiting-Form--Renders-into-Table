@@ -1,0 +1,13 @@
+#submitmessage{
+    display: flex;
+    justify-content: space-between;
+   
+}
+
+#After-Submit-message{
+    color: green;
+}
+body{
+    margin: 100px;
+    padding: 0;
+}
