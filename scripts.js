@@ -52,7 +52,7 @@ window.onload = function () {
     var JsonDataFromLocalStorage = JSON.parse(
       window.localStorage.getItem("data")
     );
-
+    $("#After-Submit-message").html("<b>Form Submitted</b>").show(200).delay(1000).fadeOut(500);
     RenderDataintoTable(JsonDataFromLocalStorage);
     form.reset();
   });
@@ -108,17 +108,17 @@ function NoRecordFound()
       "<div id= 'text'><td colspan=4>" + "No Record Found" + "</td></div>";
     tbody.appendChild(row);
 }
-$(document).ready(function(){
-  $("#liveToastBtn").click(function(){
+// $(document).ready(function(){
+//   $("#liveToastBtn").click(function(){
 
-   // $("#After-Submit-message").html("<b>Form Submitted</b>").fadeIn(500);
-    // const message = document.getElementById("After-Submit-message");
-    // console.log("fade out")
-    // message.innerHTML = "Form submitted!"; // update the message text
-    $("#After-Submit-message").html("<b>Form Submitted</b>").show(2000).delay(1000).fadeOut(500);
-    //$("#After-Submit-message").val("Form submitted!").delay(1000).fadeOut(500);
-  });
-});
+//    // $("#After-Submit-message").html("<b>Form Submitted</b>").fadeIn(500);
+//     // const message = document.getElementById("After-Submit-message");
+//     // console.log("fade out")
+//     // message.innerHTML = "Form submitted!"; // update the message text
+   
+//     //$("#After-Submit-message").val("Form submitted!").delay(1000).fadeOut(500);
+//   });
+// });
 function EditFunction(id)
 {
   var data = jsonData.find(item=> item.Id== id)
