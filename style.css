@@ -11,3 +11,20 @@ body{
     margin: 100px;
     padding: 0;
 }
+#CreateBtn{
+   display: none;
+}
+#UpdateBtn{
+    display: none; 
+}
+#ClearBtn{
+    display: none; 
+}
+#BackBtn{
+    display: none; 
+}
+div#UpsertBtn {
+    display: flex;
+    justify-content: space-evenly;
+    padding-left: 50px;
+}

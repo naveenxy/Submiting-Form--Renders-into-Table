@@ -89,26 +89,37 @@
               </select>
             </div> -->
             <div class="col-12" id="submitmessage">
-              <button
-                type="submit"
-                class="btn btn-primary mb-2"
-                id="liveToastBtn"
-              >
-                Submit
-              </button>
-              <div id="After-Submit-message"></div>
+            <button
+            type="submit"
+            class="btn btn-primary mb-2"
+            id="liveToastBtn"
+          >
+            Create
+          </button>
+         <div id="After-Submit-message"></div>
             </div>
           </div>
         </div>
       </div>
     </form>
+  
+      <div id ="UpsertBtn">
+        <button class="btn btn-primary mb-2" id="UpdateBtn" onclick="UpdateFunction()">
+          Update
+        </button>
+        
+        <button class="btn btn-primary mb-2" id="ClearBtn">
+          Back
+        </button>
+      </div>
     <div id="tableid "></div>
     <table class="table table-success table-striped">
       <thead>
         <tr>
           <th scope="col">Name</th>
           <th scope="col">Email-Id</th>
-          <th scope="col"></th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
         </tr>
         <tr id="noRecordTR">
           <!-- <td>No Record Found</td> -->

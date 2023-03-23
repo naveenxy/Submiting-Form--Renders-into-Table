@@ -3,6 +3,7 @@ var jsonData =
     ? []
     : JSON.parse(window.localStorage.getItem("data"));
 window.onload = function () {
+  console.log("window.onload ")
   const form = document.querySelector("form");
   const nameInput = document.querySelector("#name");
   const emailInput = document.querySelector("#email");
@@ -104,7 +105,7 @@ function NoRecordFound()
      tbody.innerHTML = "";
     var row = document.createElement("tr");
     row.innerHTML =
-      "<div id= 'text'><td colspan=3>" + "No Record Found" + "</td></div>";
+      "<div id= 'text'><td colspan=4>" + "No Record Found" + "</td></div>";
     tbody.appendChild(row);
 }
 $(document).ready(function(){
@@ -114,17 +115,56 @@ $(document).ready(function(){
     // const message = document.getElementById("After-Submit-message");
     // console.log("fade out")
     // message.innerHTML = "Form submitted!"; // update the message text
-    $("#After-Submit-message").html("<b>Form Submitted</b>").show().delay(1000).fadeOut(500);
+    $("#After-Submit-message").html("<b>Form Submitted</b>").show(2000).delay(1000).fadeOut(500);
     //$("#After-Submit-message").val("Form submitted!").delay(1000).fadeOut(500);
   });
 });
-
 function EditFunction(id)
 {
   var data = jsonData.find(item=> item.Id== id)
   $("#name").val(data.name);
   $("#email").val(data.email);
-  $("#liveToastBtn").html("Update");
-  
+  $("#liveToastBtn").hide();
+  $("#UpdateBtn").show();
+  $("BackBtn").show();
+  $("#ClearBtn").show();
+
+  localStorage.setItem("data_Id",data.Id)
+}
+
+function UpdateFunction(value)
+{
+  console.log(value);
+ var id = localStorage.getItem("data_Id")
+const nameInput = document.querySelector("#name").value;
+ const emailInput = document.querySelector("#email").value;
+jsonData= jsonData.map(obj => {
+  if (obj.Id == id) {
+  obj.name= nameInput;
+  obj.email=emailInput
+  }
+ return obj;
+ })
+ localStorage.setItem("data", JSON.stringify(jsonData));
+console.log(jsonData)
+var JsonDataFromLocalStorage = JSON.parse(
+  window.localStorage.getItem("data")
+);
+RenderDataintoTable(JsonDataFromLocalStorage)
+//localStorage.removeItem("data_Id");
 
 }
+$(document).ready(function(){
+  $("#ClearBtn").click(function(){
+   location.reload();
+   });
+});
+
+
+// $(document).ready(function(){
+//   $("#UpdateBtn").click(function(){
+//    console.log("hi")
+//    const nameInput = document.querySelector("#name").value;
+//    const emailInput = document.querySelector("#email").value;
+//    });
+// });
